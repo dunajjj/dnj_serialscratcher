@@ -9,24 +9,24 @@ RegisterNetEvent('dnj_scratcher:scratch', function(slot, itemname)
     local item = exports.ox_inventory:GetSlot(src, slot) -- https://overextended.dev/ox_inventory/Functions/Server#getslot
 
     if not item or item.name ~= itemname then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed')
+        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
         return
     end
 
     if item.metadata.serial == dnj.scratchhook then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'alreadydone')
+        TriggerClientEvent('dnj_scratcher:notify', src, 'alreadydone') 
         return
     end
 
     local scratcherslot = exports.ox_inventory:GetItemSlots(src, dnj.scratcheritem) -- https://overextended.dev/ox_inventory/Functions/Server#getitemslots
     if not scratcherslot then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed')
+        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
         return
     end
-
-    local removed = exports.ox_inventory:RemoveItem(src, dnj.scratcheritem, 1)
+        
+    local removed = exports.ox_inventory:RemoveItem(src, dnj.scratcheritem, 1) 
     if not removed then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed')
+        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
         return
     end
 
