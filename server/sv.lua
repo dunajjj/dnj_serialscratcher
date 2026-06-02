@@ -36,5 +36,4 @@ RegisterNetEvent('dnj_scratcher:scratch', function(slot, itemname)
     exports.ox_inventory:SetMetadata(src, slot, newmeta) -- https://overextended.dev/ox_inventory/Functions/Server#setmetadata
     TriggerClientEvent('dnj_scratcher:notify', src, 'success')
 
-    print(('[dnj_scratcher] hrac %s zoskrabal serial na zbrani %s (slot %d)'):format(GetPlayerIdentifier(src, 0) or src, itemname, slot))
 end)
