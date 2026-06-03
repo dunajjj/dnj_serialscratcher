@@ -14,19 +14,19 @@ RegisterNetEvent('dnj_scratcher:scratch', function(slot, itemname)
     end
 
     if item.metadata.serial == dnj.scratchhook then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'alreadydone') 
+        TriggerClientEvent('ox_lib:notify', source, { type = 'error', description = 'Sériové číslo je již smazáno.' }) 
         return
     end
 
     local scratcherslot = exports.ox_inventory:GetItemSlots(src, dnj.scratcheritem) -- https://overextended.dev/ox_inventory/Functions/Server#getitemslots
     if not scratcherslot then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
+        TriggerClientEvent('ox_lib:notify', source, { type = 'error', description = 'Něco se pokazilo.' }) -- crash
         return
     end
         
     local removed = exports.ox_inventory:RemoveItem(src, dnj.scratcheritem, 1) 
     if not removed then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
+        TriggerClientEvent('ox_lib:notify', source, { type = 'error', description = 'Něco se pokazilo.' }) -- crash
         return
     end
 
