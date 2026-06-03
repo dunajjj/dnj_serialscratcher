@@ -71,15 +71,3 @@ exports('usescratch', function()
         TriggerServerEvent('dnj_scratcher:scratch', slot, itemname)
     end
 end)
-
-RegisterNetEvent('dnj_scratcher:notify', function(key)
-    local messages = {
-        success     = { description = 'Sériové číslo bylo úspěšně smazáno.', type = 'success' },
-        alreadydone = { description = 'Sériové číslo je již smazáno.', type = 'inform' },
-        failed      = { description = 'Něco se pokazilo.', type = 'error' },
-    }
-    local n = messages[key]
-    if n then
-        lib.notify({  description = n.description, type = n.type })
-    end
-end)
