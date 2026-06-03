@@ -34,6 +34,6 @@ RegisterNetEvent('dnj_scratcher:scratch', function(slot, itemname)
     newmeta.serial = dnj.scratchhook
 
     exports.ox_inventory:SetMetadata(src, slot, newmeta) -- https://overextended.dev/ox_inventory/Functions/Server#setmetadata
-    TriggerClientEvent('dnj_scratcher:notify', src, 'success')
+    TriggerClientEvent('ox_lib:notify', source, { type = 'error', description = 'Sériové číslo bylo úspěšně smazáno.' })
 
 end)
