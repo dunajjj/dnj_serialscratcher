@@ -9,7 +9,7 @@ RegisterNetEvent('dnj_scratcher:scratch', function(slot, itemname)
     local item = exports.ox_inventory:GetSlot(src, slot) -- https://overextended.dev/ox_inventory/Functions/Server#getslot
 
     if not item or item.name ~= itemname then
-        TriggerClientEvent('dnj_scratcher:notify', src, 'failed') -- crash
+        TriggerClientEvent('ox_lib:notify', source, { type = 'error', description = 'Něco se pokazilo.' }) -- crash
         return
     end
 
