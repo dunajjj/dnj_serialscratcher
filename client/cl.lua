@@ -59,7 +59,7 @@ exports('usescratch', function()
         duration     = 6000,
         label        = 'Mažeš sériové číslo...',
         useWhileDead = false,
-        canCancel    = true,
+        canCancel    = false,
         disable      = { move = true, car = true, combat = true },
         anim         = { dict = 'mp_arresting', clip = 'a_uncuff', flag = 49 },
     })
